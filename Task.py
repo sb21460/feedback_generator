@@ -2,6 +2,9 @@ import os
 
 os.makedirs("Feedback", exist_ok=True)
 
+def map_score_to_description(score, descriptions):
+    return descriptions.get(score, "Invalid score; please ensure scores are 1, 2, or 3.")
+
 names = input("Enter student names (separated by commas): ").split(",")
 
 for student in names:
