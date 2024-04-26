@@ -1,5 +1,7 @@
 import os
 
+os.makedirs("Feedback", exist_ok=True)
+
 names = input("Enter student names (separated by commas): ").split(",")
 
 for student in names:
@@ -17,11 +19,13 @@ for student in names:
     understanding_descriptions = {"1": "basic understanding", "2": "good understanding", "3": "excellent understanding"}
     contribution_descriptions = {"1": "", "2": "", "3": ""}
     completion_descriptions = {"1": "", "2": "", "3": ""}
-
-    feedback = f"General comments\n{student} did well with functions and loops. Contributed well to class discussions.\n"
-    feedback += f"{student} demonstrated {understanding_descriptions.get(understanding_level)} with Python and general programming principles.\n"
-    feedback += f"Learner punctuality and engagement\n{student} engaged well throughout the module with camera on most of the time.\n"
-    feedback += "Recommendations on further learning\nHave a look at advanced concepts such as recursiveness."
+  
+    feedback = (
+        f"General comments\n{student} demonstrated {map_score_to_description(understanding_score, descriptions)} understanding of Python and general programming principles, "
+        f"and contributed {map_score_to_description(contribution_score, descriptions)} to class discussions. They completed tasks with a {map_score_to_description(completion_score, descriptions)} level of thoroughness.\n\n"
+        f"Learner punctuality and engagement\n{student} was {map_score_to_description(punctuality_score, descriptions)} punctual and engaged {map_score_to_description(engagement_score, descriptions)} throughout the module.\n\n"
+        f"Recommendations on further learning\n{student} should look at advanced concepts such as recursion to further enhance their understanding, as they have shown a {map_score_to_description(further_learning_score, descriptions)} aptitude for further learning."
+    )
 
     filename = os.path.join("Feedback", f"{student}_feedback.txt")
     with open(filename, 'w') as file:
