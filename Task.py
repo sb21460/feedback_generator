@@ -1,3 +1,4 @@
+import os
 
 names = input("Enter student names (separated by commas): ").split(",")
 
