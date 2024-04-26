@@ -5,7 +5,7 @@ os.makedirs("Feedback", exist_ok=True)
 def map_score_to_description(score, descriptions):
     return descriptions.get(score, "Invalid score entered. Please ensure scores are 1, 2, or 3.")
 
-names = input("Enter student names (separated by commas): ").split(",")
+names = input("RyanK, Ryan, Sandy, Mohammad, Ashley, LukeG): ").split(",")
 
 for student in names:
     student = student.strip()
