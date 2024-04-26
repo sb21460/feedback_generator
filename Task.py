@@ -22,6 +22,7 @@ for student in names:
     feedback += f"Learner punctuality and engagement\n{student} engaged well throughout the module with camera on most of the time.\n"
     feedback += "Recommendations on further learning\nHave a look at advanced concepts such as recursiveness."
 
-    filename = f"{student}_feedback.txt"
-    with open(filename, "w") as file:
+    filename = os.path.join("Feedback", f"{student}_feedback.txt")
+    with open(filename, 'w') as file:
         file.write(feedback)
+    print(f"Feedback for {student} written to {filename}")
